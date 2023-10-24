@@ -115,6 +115,31 @@ public class ListaDuplamenteEncadeada implements Lista {
 	public void setFim(NodoDupla fim) {
 		this.fim = fim;
 	}
+	@Override
+	public void ordenar() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public int tamanho() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public Lista copiar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void inverter() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public boolean buscar(int valor) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 
 

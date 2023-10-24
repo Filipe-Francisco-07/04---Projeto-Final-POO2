@@ -65,9 +65,29 @@ public class Fila implements Lista{
 			}
 			
 		}
-		
+
 		@Override
-		public void mostrar() {
+		public boolean buscar(int valor) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+		@Override
+		public void ordenar() {
+			// TODO Auto-generated method stub
+			
+		}
+		@Override
+		public int tamanho() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		@Override
+		public Lista copiar() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		@Override
+		public void inverter() {
 			// TODO Auto-generated method stub
 			
 		}
@@ -76,9 +96,13 @@ public class Fila implements Lista{
 			// TODO Auto-generated method stub
 			
 		}
-
 		@Override
 		public void alterar(int valorAntigo, int novoValor) {
+			// TODO Auto-generated method stub
+			
+		}
+		@Override
+		public void mostrar() {
 			// TODO Auto-generated method stub
 			
 		}
