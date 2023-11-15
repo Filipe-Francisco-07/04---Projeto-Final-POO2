@@ -1,5 +1,7 @@
 package Listas;
 
+import java.util.Stack;
+
 public class Fila implements Lista{
 
 		private Nodo inicio = null;
@@ -68,44 +70,111 @@ public class Fila implements Lista{
 
 		@Override
 		public boolean buscar(int valor) {
-			// TODO Auto-generated method stub
-			return false;
+			Nodo atual = inicio;
+		    while (atual != null) {
+		        if (atual.getDado() == valor) {
+		            return true;
+		        }
+		        atual = atual.getProx();
+		    }
+		    return false;
 		}
+
 		@Override
 		public void ordenar() {
-			// TODO Auto-generated method stub
-			
+		    Nodo atual, proximo;
+		    boolean trocou;
+		    do {
+		        trocou = false;
+		        atual = inicio;
+		        while (atual != null && atual.getProx() != null) {
+		            proximo = atual.getProx();
+		            if (atual.getDado() > proximo.getDado()) {
+		                int temp = atual.getDado();
+		                atual.setDado(proximo.getDado());
+		                proximo.setDado(temp);
+		                trocou = true;
+		            }
+		            atual = atual.getProx();
+		        }
+		    } while (trocou);
 		}
+
 		@Override
 		public int tamanho() {
-			// TODO Auto-generated method stub
-			return 0;
+		    return tamanho;
 		}
+
 		@Override
 		public Lista copiar() {
-			// TODO Auto-generated method stub
-			return null;
+		    Fila copia = new Fila(limite);
+		    Nodo atual = inicio;
+		    while (atual != null) {
+		        copia.inserir(atual.getDado());
+		        atual = atual.getProx();
+		    }
+		    return copia;
 		}
+
 		@Override
 		public void inverter() {
-			// TODO Auto-generated method stub
-			
+		    Stack<Integer> pilha = new Stack<>();
+		    Nodo atual = inicio;
+		    while (atual != null) {
+		        pilha.push(atual.getDado());
+		        atual = atual.getProx();
+		    }
+		    atual = inicio;
+		    while (!pilha.isEmpty()) {
+		        atual.setDado(pilha.pop());
+		        atual = atual.getProx();
+		    }
 		}
+
 		@Override
 		public void remover(int valor) {
-			// TODO Auto-generated method stub
-			
+		    Nodo atual = inicio;
+		    Nodo anterior = null;
+
+		    while (atual != null) {
+		        if (atual.getDado() == valor) {
+		            if (anterior == null) {
+		                inicio = atual.getProx();
+		            } else {
+		                anterior.setProx(atual.getProx());
+		            }
+		            tamanho--;
+		            if (atual == fim) {
+		                fim = anterior;
+		            }
+		        } else {
+		        	anterior = atual;
+		        }
+		        atual = atual.getProx();
+		    }
 		}
+
 		@Override
 		public void alterar(int valorAntigo, int novoValor) {
-			// TODO Auto-generated method stub
-			
+		    Nodo atual = inicio;
+		    while (atual != null) {
+		        if (atual.getDado() == valorAntigo) {
+		            atual.setDado(novoValor);
+		        }
+		        atual = atual.getProx();
+		    }
 		}
+
 		@Override
-		public void mostrar() {
-			// TODO Auto-generated method stub
-			
+		public String mostrar() {
+		    StringBuilder resultado = new StringBuilder();
+
+		    Nodo atual = inicio;
+		    while (atual != null) {
+		        resultado.append(atual.getDado()).append(" ");
+		        atual = atual.getProx();
+		    }
+
+		    return resultado.toString();
 		}
-
-
 }

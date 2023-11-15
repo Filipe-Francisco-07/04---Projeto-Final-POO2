@@ -88,15 +88,15 @@ public class ListaDuplamenteEncadeada implements Lista {
 		}
 	}
 	
-	public void mostrar() {
+	public String mostrar() {
 		String lista ="";
-		if(inicio == null)System.out.println("Lista vazia.");
+		if(inicio == null)return lista;
 		NodoDupla aux = inicio;
 		while(aux != null) {
 			lista+=(aux.getDado()+"\n");
 			aux = aux.getProx();
 		}
-		System.out.println(lista);
+		return lista;
 
 	}
 	
@@ -117,31 +117,77 @@ public class ListaDuplamenteEncadeada implements Lista {
 	}
 	@Override
 	public void ordenar() {
-		// TODO Auto-generated method stub
-		
+	    if (inicio == null || inicio.getProx() == null) {
+	        return; 
+	    }
+
+	    boolean trocou;
+	    NodoDupla atual;
+	    NodoDupla proximo = null;
+
+	    do {
+	        trocou = false;
+	        atual = inicio;
+
+	        while (atual.getProx() != proximo) {
+	            if (atual.getDado() > atual.getProx().getDado()) {
+	                int temp = atual.getDado();
+	                atual.setDado(atual.getProx().getDado());
+	                atual.getProx().setDado(temp);
+	                trocou = true;
+	            }
+	            atual = atual.getProx();
+	        }
+	        proximo = atual;
+	    } while (trocou);
 	}
 	@Override
 	public int tamanho() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public Lista copiar() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public void inverter() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public boolean buscar(int valor) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	    int tamanho = 0;
+	    NodoDupla aux = inicio;
+	    while (aux != null) {
+	        tamanho++;
+	        aux = aux.getProx();
+        }
+        return tamanho;
+    }
 
+    @Override
+    public Lista copiar() {
+        ListaDuplamenteEncadeada copia = new ListaDuplamenteEncadeada();
+        NodoDupla aux = inicio;
+        while (aux != null) {
+            copia.inserirFinal(aux.getDado());
+            aux = aux.getProx();
+        }
+        return copia;
+    }
 
+    @Override
+    public void inverter() {
+        NodoDupla aux = inicio;
+        while (aux != null) {
+            NodoDupla temp = aux.getProx();
+            aux.setProx(aux.getAnt());
+            aux.setAnt(temp);
+            aux = temp;
+        }
+        NodoDupla temp = inicio;
+        inicio = fim;
+        fim = temp;
+    }
+
+    @Override
+    public boolean buscar(int valor) {
+        NodoDupla aux = inicio;
+        while (aux != null) {
+            if (aux.getDado() == valor) {
+                return true;
+            }
+            aux = aux.getProx();
+        }
+        return false;
+    }
 
 }
 	

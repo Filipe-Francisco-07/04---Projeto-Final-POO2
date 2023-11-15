@@ -5,7 +5,7 @@ public interface Lista {
     void remover(int valor);
     void alterar(int valorAntigo, int novoValor);
     boolean buscar(int valor);
-    void mostrar();
+    String mostrar();
     void ordenar();
     int tamanho();
     Lista copiar();

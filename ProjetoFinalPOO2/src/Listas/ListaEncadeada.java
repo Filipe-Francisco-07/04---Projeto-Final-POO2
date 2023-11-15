@@ -2,163 +2,204 @@ package Listas;
 
 public class ListaEncadeada implements Lista{
 
-		private Nodo inicio;
+	private Nodo inicio;
+	
+	public ListaEncadeada() {
+		inicio = null;
+	}
+	
+	public boolean vazia() {
+		return inicio == null;
+	}
+	
+	public Nodo getInicio() {
+		return inicio;
+	}
+	
+	public void inserir(int dado) {
+		Nodo novoNodo = new Nodo(dado);
+		novoNodo.setProx(inicio);
+		inicio = novoNodo;
+	}
+	
+	public String mostrar() {
+	    StringBuilder resultado = new StringBuilder();
+
+	    if (vazia()) {
+	        resultado.append("Null list. :(\n");
+	    } else {
+	        Nodo aux = inicio;
+	        while (aux != null) {
+	            resultado.append(aux.getDado()).append(" ");
+	            aux = aux.getProx();
+	        }
+	        resultado.append("\n");
+	    }
+
+	    return resultado.toString();
+	}
+	
+	public void inserirFinal(int valor) {
+		if(vazia()) {
+			return;
+		}
 		
-		public ListaEncadeada() {
+		Nodo aux = inicio;
+		Nodo aux2 = inicio;
+		
+		while(aux2.getProx().getDado() != valor) {
+			aux2 = aux2.getProx();
+		}
+		
+		while(aux.getProx() != null) {
+			aux = aux.getProx();
+		}
+		
+		if(aux.getProx() == null) {
+			
+		}
+		
+	}
+	
+	public void remover(int valor) {
+		if(vazia()) {
+			System.out.println("Null position, can't delete. :(");
+			return;
+		}
+		if(inicio.getDado()== valor) {
+			inicio = inicio.getProx();
+			return;
+		}
+		Nodo aux = inicio;
+		while(aux != null) {
+			if(aux.getProx().getDado()==valor) {
+				aux.setProx(aux.getProx().getProx());
+				return;
+			}
+			aux = aux.getProx();
+		}		
+	}
+	
+	public void deletarUltimo() {
+		if(inicio == null) return;
+		
+		Nodo aux = inicio;
+		Nodo ant = null;
+		
+		if(inicio.getProx()== null) {
 			inicio = null;
+			return;
 		}
 		
-		public boolean vazia() {
-			return inicio == null;
+		while(inicio.getProx()== null) {
+			ant = aux;
+			aux = aux.getProx();
 		}
-		
-		public Nodo getInicio() {
-			return inicio;
-		}
-		
-		public void inserir(int dado) {
-			Nodo novoNodo = new Nodo(dado);
-			novoNodo.setProx(inicio);
-			inicio = novoNodo;
-		}
-		
-		public void mostrar() {
-			if(vazia()) {
-				System.out.println("Null list. :(");
-				return;
-			}
-			Nodo aux = inicio;
-			while(aux != null) {
-				System.out.print(aux.getDado()+" ");
-				aux = aux.getProx();
-			}
-			System.out.println();
-			
-		}
-		
-		public void inserirFinal(int valor) {
-			if(vazia()) {
-				return;
-			}
-			
-			Nodo aux = inicio;
-			Nodo aux2 = inicio;
-			
-			while(aux2.getProx().getDado() != valor) {
-				aux2 = aux2.getProx();
-			}
-			
-			while(aux.getProx() != null) {
-				aux = aux.getProx();
-			}
-			
-			if(aux.getProx() == null) {
-				
-			}
-			
-		}
-		
-		public void remover(int valor) {
-			if(vazia()) {
-				System.out.println("Null position, can't delete. :(");
-				return;
-			}
-			if(inicio.getDado()== valor) {
-				inicio = inicio.getProx();
-				return;
-			}
-			Nodo aux = inicio;
-			while(aux != null) {
-				if(aux.getProx().getDado()==valor) {
-					aux.setProx(aux.getProx().getProx());
-					return;
-				}
-				aux = aux.getProx();
-			}		
-		}
-		
-		public void deletarUltimo() {
-			if(inicio == null) return;
-			
-			Nodo aux = inicio;
-			Nodo ant = null;
-			
-			if(inicio.getProx()== null) {
-				inicio = null;
-				return;
-			}
-			
-			while(inicio.getProx()== null) {
-				ant = aux;
-				aux = aux.getProx();
-			}
-			ant.setProx(null);
-		}
-		
-		public int buscarValor(int valor) {
-			if(vazia()){
-				return -1;
-			}
-		
-			Nodo  aux = inicio;
-			int posicao = 0;
-			while(aux != null) {
-				posicao++;
-				if(aux.getDado()==valor) {
-					return posicao;
-				}
-				aux = aux.getProx();
-			}
-			return-1;
-		}
-
-		public void alterar(int valorAntigo, int novoValor) {
-		    if (vazia()) {
-		        System.out.println("A lista está vazia. Não é possível fazer a alteração.");
-		        return;
-		    }
-
-		    Nodo aux = inicio;
-
-		    while (aux != null) {
-		        if (aux.getDado() == valorAntigo) {
-		            aux.setDado(novoValor);
-		            return;
-		        }
-		        aux = aux.getProx();
-		    }
-
-		    System.out.println("Valor antigo não encontrado na lista. A alteração não foi realizada.");
-		}
-
-		@Override
-		public void ordenar() {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public int tamanho() {
-			// TODO Auto-generated method stub
-			return 0;
-		}
-
-		@Override
-		public Lista copiar() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public void inverter() {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public boolean buscar(int valor) {
-			// TODO Auto-generated method stub
+		ant.setProx(null);
+	}
+	
+	public boolean buscar(int valor) {
+		if(vazia()){
 			return false;
 		}
-		
+	
+		Nodo  aux = inicio;
+		while(aux != null) {
+			if(aux.getDado()==valor) {
+				return true;
+			}
+			aux = aux.getProx();
+		}
+		return false;
+	}
+
+	public void alterar(int valorAntigo, int novoValor) {
+	    if (vazia()) {
+	        System.out.println("A lista está vazia. Não é possível fazer a alteração.");
+	        return;
+	    }
+
+	    Nodo aux = inicio;
+
+	    while (aux != null) {
+	        if (aux.getDado() == valorAntigo) {
+	            aux.setDado(novoValor);
+	            return;
+	        }
+	        aux = aux.getProx();
+	    }
+
+	    System.out.println("Valor antigo não encontrado na lista. A alteração não foi realizada.");
+	}
+
+	@Override
+	public void ordenar() {
+	    if (vazia() || inicio.getProx() == null) {
+	        return; 
+	    }
+
+	    boolean trocou;
+
+	    do {
+	        trocou = false;
+	        Nodo atual = inicio;
+	        while (atual.getProx() != null) {
+	            if (atual.getDado() > atual.getProx().getDado()) {
+	                int temp = atual.getDado();
+	                atual.setDado(atual.getProx().getDado());
+	                atual.getProx().setDado(temp);
+	                trocou = true;
+	            }
+
+	            atual = atual.getProx();
+	        }
+	    } while (trocou);
+	}
+
+	@Override
+    public int tamanho() {
+        int tamanho = 0;
+        Nodo aux = inicio;
+
+        while (aux != null) {
+            tamanho++;
+            aux = aux.getProx();
+        }
+
+        return tamanho;
+    }
+
+    @Override
+    public Lista copiar() {
+        ListaEncadeada copia = new ListaEncadeada();
+        Nodo aux = inicio;
+
+        while (aux != null) {
+            copia.inserirFinal(aux.getDado());
+            aux = aux.getProx();
+        }
+
+        return copia;
+    }
+
+    @Override
+    public void inverter() {
+        if (vazia()) {
+            return;
+        }
+
+        Nodo anterior = null;
+        Nodo atual = inicio;
+        Nodo proximo;
+
+        while (atual != null) {
+            proximo = atual.getProx();
+            atual.setProx(anterior);
+            anterior = atual;
+            atual = proximo;
+        }
+
+        inicio = anterior;
+    }
+
 }

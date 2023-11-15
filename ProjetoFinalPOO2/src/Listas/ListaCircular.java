@@ -17,7 +17,7 @@ public class ListaCircular implements Lista{
 			return fim;
 		}
 		
-		public void inserirInicio(int dado) {
+		public void inserir(int dado) {
 			Nodo novoNodo = new Nodo(dado);
 			if(inicio == null) {
 				inicio = novoNodo;
@@ -30,7 +30,7 @@ public class ListaCircular implements Lista{
 			}
 		}
 		
-		public String mostrarLista() {
+		public String mostrar() {
 			String lista = "";
 			if(inicio == null) return lista;
 			Nodo aux = inicio;
@@ -38,11 +38,12 @@ public class ListaCircular implements Lista{
 				lista+= aux.getDado()+"\n";
 				aux = aux.getProx();
 			}while(aux!=inicio);
+			
 			return lista;
 		
 		}
 		
-		public void deleteComValor(int dado) {
+		public void remover(int dado) {
 			if(inicio == null) return;	
 		
 			if(inicio.getDado()== dado) {
@@ -93,74 +94,93 @@ public class ListaCircular implements Lista{
 			
 		}
 		
-		public int buscarValor(int valor) {
-			if(inicio == null) return -1;	
+		public boolean buscar(int valor) {
+			if(inicio == null) return false;	
 		
 			Nodo aux = inicio;
-			int posicao = 0;
 			do {
-				posicao++;
 				if(aux.getDado()==valor) {
-					return posicao;
+					return true;
 				}
 				aux = aux.getProx();
 			}while(aux != inicio);
-			return-1;
-		}
-
-		@Override
-		public void inserir(int valor) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void remover(int valor) {
-			// TODO Auto-generated method stub
-			
+			return false;
 		}
 
 
-		@Override
-		public void mostrar() {
-			// TODO Auto-generated method stub
-			
-		}
 
-		@Override
+
 		public void alterar(int valorAntigo, int novoValor) {
-			// TODO Auto-generated method stub
-			
+		    if (inicio == null) return;
+		    Nodo aux = inicio;
+		    do {
+		        if (aux.getDado() == valorAntigo) {
+		            aux.setDado(novoValor);
+		        }
+		        aux = aux.getProx();
+		    } while (aux != inicio);
 		}
 
 		@Override
 		public void ordenar() {
-			// TODO Auto-generated method stub
-			
+		    if (inicio == null || inicio.getProx() == inicio) {
+		        return; 
+		    }
+		    Nodo atual = inicio;
+		    do {
+		        Nodo proximo = atual.getProx();
+		        do {
+		            if (atual.getDado() > proximo.getDado()) {
+		                int temp = atual.getDado();
+		                atual.setDado(proximo.getDado());
+		                proximo.setDado(temp);
+		            }
+		            proximo = proximo.getProx();
+		        } while (proximo != inicio);
+		        atual = atual.getProx();
+		    } while (atual.getProx() != inicio);
 		}
 
 		@Override
 		public int tamanho() {
-			// TODO Auto-generated method stub
-			return 0;
+		    if (inicio == null) return 0;
+		    int tamanho = 0;
+		    Nodo aux = inicio;
+		    do {
+		        tamanho++;
+		        aux = aux.getProx();
+		    } while (aux != inicio);
+		    return tamanho;
 		}
 
 		@Override
 		public Lista copiar() {
-			// TODO Auto-generated method stub
-			return null;
+		    ListaCircular copia = new ListaCircular();
+		    Nodo aux = inicio;
+		    do {
+		        copia.inserirFinal(aux.getDado());
+		        aux = aux.getProx();
+		    } while (aux != inicio);
+		    return copia;
 		}
 
 		@Override
 		public void inverter() {
-			// TODO Auto-generated method stub
-			
-		}
+		    if (inicio == null || inicio.getProx() == inicio) {
+		        return; 
+		    }
+		    Nodo anterior = null;
+		    Nodo atual = inicio;
+		    Nodo proximo;
+		    do {
+		        proximo = atual.getProx();
+		        atual.setProx(anterior);
+		        anterior = atual;
+		        atual = proximo;
+		    } while (atual != inicio);
 
-		@Override
-		public boolean buscar(int valor) {
-			// TODO Auto-generated method stub
-			return false;
+		    inicio = anterior;
+		    fim = atual;
+		    fim.setProx(inicio);
 		}
-
 }
