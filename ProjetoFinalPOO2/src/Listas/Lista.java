@@ -10,4 +10,5 @@ public interface Lista {
     int tamanho();
     Lista copiar();
     void inverter();
+    public Nodo getInicio();
 }

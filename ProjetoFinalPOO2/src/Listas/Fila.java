@@ -18,12 +18,12 @@ public class Fila implements Lista{
 		public boolean temEspaco() {
 			return limite > tamanho;
 		}
-		public int getInicio() {
+		public Nodo getInicio() {
 			if(!estaVazio()) {
-				return inicio.getDado();
+				return inicio;
 			}else {
 				System.out.println("Fila está vazia!");
-				return -1;
+				return null;
 			}
 		}
 		public void inserir(int dado) {

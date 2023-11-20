@@ -168,4 +168,31 @@ public class Pilha implements Lista{
 
         return false;
     }
+    
+ // inserir (push)
+ 	public void push(int dado) {
+ 		if(temEspaco()) {
+ 			Nodo novo = new Nodo(dado);
+ 			novo.setProx(topo);
+ 			topo = novo;
+ 			tamanho++;
+ 		}else {
+ 			System.out.println("Pilha cheia!!!");
+ 		}
+ 	}
+ 	// remover (pop)
+ 	public void pop() {
+ 		if(!estaVazio()) {
+ 			System.out.println(topo.getDado()+" foi retirado da pilha!");
+ 			topo = topo.getProx();
+ 			tamanho--;
+ 		}else {
+ 			System.out.println("Pilha está vazia!");
+ 		}
+ 	}
+	@Override
+	public Nodo getInicio() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

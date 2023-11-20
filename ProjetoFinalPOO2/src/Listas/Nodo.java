@@ -2,24 +2,38 @@ package Listas;
 
 public class Nodo {
 	private int dado;
-	private Nodo Prox;
+	private Nodo prox;
+	private Nodo ant;
 	
 	public Nodo(int dado) {
 		this.dado = dado;
-		this.Prox = null;
+		prox = null;
+		ant = null;
 	}
-	
+
 	public int getDado() {
 		return dado;
 	}
+
 	public void setDado(int dado) {
 		this.dado = dado;
 	}
+
 	public Nodo getProx() {
-		return Prox;
+		return prox;
 	}
+
 	public void setProx(Nodo prox) {
-		Prox = prox;
+		this.prox = prox;
 	}
+
+	public Nodo getAnt() {
+		return ant;
+	}
+
+	public void setAnt(Nodo ant) {
+		this.ant = ant;
+	}
+	
 	
 }

@@ -10,51 +10,101 @@ import Listas.Lista;
 class Fila_Test {
 
 	@Test
-	void testInserir() {
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	void testRemover() {
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	void testAlterar() {
-		fail("Not yet implemented");
-	}
-	@Test
-	boolean testBuscar() {
-		fail("Not yet implemented");
-		return false;
-	}
-	
-	@Test
-	String testMostrar() {
-		fail("Not yet implemented");
-		return "";
-	}
-	
-	@Test
-	void testOrdenar() {
-		fail("Not yet implemented");
-	}
-	@Test
-	int testTamanho() {
-		fail("Not yet implemented");
-		return 0;
-	}
-	
-	@Test
-	Lista testCopiar() {
-		fail("Not yet implemented");
-		Lista l = new Fila(0);
-		return l;
-	}
-	
-	@Test
-	void testInverter() {
-		fail("Not yet implemented");
-	}
+    void testInserir() {
+        Fila f = new Fila(10);
+        f.inserir(1);
+        assertEquals(1, f.getInicio().getDado());
+        f.inserir(2);
+        assertEquals(2, f.getInicio().getProx().getDado());
+    }
+
+    @Test
+    void testRemover() {
+        Fila f = new Fila(10);
+        f.inserir(1);
+        f.inserir(2);
+        assertEquals(1, f.remover());
+        assertEquals(2, f.getInicio().getDado());
+        f.remover();
+        assertEquals(null, f.getInicio());
+    }
+
+    @Test
+    void testAlterar() {
+        Fila f = new Fila(10);
+        f.inserir(1);
+        f.inserir(2);
+        f.alterar(1, 3);
+        assertEquals(3, f.getInicio().getDado());
+        f.alterar(2, 4);
+        assertEquals(4, f.getInicio().getProx().getDado());
+    }
+
+    @Test
+    boolean testBuscar() {
+        Fila f = new Fila(10);
+        f.inserir(1);
+        assertTrue(f.buscar(1));
+        assertFalse(f.buscar(3));
+        return false;
+    }
+
+    @Test
+    String testMostrar() {
+        Fila f = new Fila(10);
+        f.inserir(1);
+        f.inserir(2);
+        assertEquals("1 2", f.mostrar());
+        return "";
+    }
+
+    @Test
+    void testOrdenar() {
+        Fila f = new Fila(10);
+        f.inserir(5);
+        f.inserir(2);
+        f.inserir(3);
+        f.ordenar();
+        assertEquals(2, f.getInicio().getDado());
+        assertEquals(3, f.getInicio().getProx().getDado());
+        assertEquals(5, f.getInicio().getProx().getProx().getDado());
+    }
+
+    @Test
+    void testTamanho() {
+        Fila f = new Fila(10);
+        assertEquals(0, f.tamanho());
+        f.inserir(1);
+        assertEquals(1, f.tamanho());
+        f.inserir(2);
+        assertEquals(2, f.tamanho());
+        f.remover();
+        assertEquals(1, f.tamanho());
+    }
+
+    @Test
+    Lista testCopiar() {
+        Fila f = new Fila(10);
+        f.inserir(1);
+        f.inserir(2);
+        Fila f2 = (Fila) f.copiar();
+        assertEquals(f.getInicio().getDado(), f2.getInicio().getDado());
+        assertEquals(f.getInicio().getProx().getDado(), f2.getInicio().getProx().getDado());
+        assertEquals(true, f2 instanceof Fila);
+        return f2;
+    }
+
+    @Test
+    void testInverter() {
+        Fila f = new Fila(10);
+        f.inserir(1);
+        f.inserir(2);
+        f.inserir(3);
+        f.inverter();
+        assertEquals(3, f.getInicio().getDado());
+        assertEquals(2, f.getInicio().getProx().getDado());
+        assertEquals(1, f.getInicio().getProx().getProx().getDado());
+    }
+
 
 }

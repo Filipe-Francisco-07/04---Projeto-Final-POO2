@@ -1,13 +1,13 @@
 package Listas;
 
 public class ListaDuplamenteEncadeada implements Lista {
-	private NodoDupla inicio;
-	private NodoDupla fim;
+	private Nodo inicio;
+	private Nodo fim;
 	
 	
 	
 	public void inserir(int dado) {
-		NodoDupla novo = new NodoDupla(dado);
+		Nodo novo = new Nodo(dado);
 		if(inicio != null) {
 			inicio.setAnt(novo);
 			novo.setProx(inicio);
@@ -18,7 +18,7 @@ public class ListaDuplamenteEncadeada implements Lista {
 		}
 	}
 	public void inserirFinal(int dado) {
-		NodoDupla novo = new NodoDupla(dado);
+		Nodo novo = new Nodo(dado);
 		if(fim != null) {
 			fim.setProx(novo);
 			novo.setAnt(fim);
@@ -30,7 +30,7 @@ public class ListaDuplamenteEncadeada implements Lista {
 	}
 	
 	public void alterar(int valorAntigo, int novoValor) {
-	    NodoDupla aux = inicio;
+	    Nodo aux = inicio;
 	    while (aux != null) {
 	        if (aux.getDado() == valorAntigo) {
 	            aux.setDado(novoValor);
@@ -42,7 +42,7 @@ public class ListaDuplamenteEncadeada implements Lista {
 	}
 	
 	public void removerInicio() {
-		NodoDupla nodoRemovido = inicio;
+		Nodo nodoRemovido = inicio;
 		if(inicio == null) return;
 				
 		inicio = inicio.getProx();
@@ -55,7 +55,7 @@ public class ListaDuplamenteEncadeada implements Lista {
 	}
 	
 	public void removerFinal() {
-		NodoDupla nodoRemovido = fim;
+		Nodo nodoRemovido = fim;
 		if(fim == null) return;
 				
 		fim = fim.getAnt();
@@ -67,8 +67,8 @@ public class ListaDuplamenteEncadeada implements Lista {
 		}
 	}
 	public void remover(int valor) {
-		NodoDupla nodoRemovido = null;
-		NodoDupla aux = inicio;
+		Nodo nodoRemovido = null;
+		Nodo aux = inicio;
 		while(aux != null) {
 			if(aux.getDado()== valor) {
 				nodoRemovido = aux;
@@ -91,7 +91,7 @@ public class ListaDuplamenteEncadeada implements Lista {
 	public String mostrar() {
 		String lista ="";
 		if(inicio == null)return lista;
-		NodoDupla aux = inicio;
+		Nodo aux = inicio;
 		while(aux != null) {
 			lista+=(aux.getDado()+"\n");
 			aux = aux.getProx();
@@ -99,20 +99,19 @@ public class ListaDuplamenteEncadeada implements Lista {
 		return lista;
 
 	}
-	
-	public NodoDupla getInicio() {
+	public Nodo getInicio() {
 		return inicio;
 	}
 
-	public void setInicio(NodoDupla inicio) {
+	public void setInicio(Nodo inicio) {
 		this.inicio = inicio;
 	}
 
-	public NodoDupla getFim() {
+	public Nodo getFim() {
 		return fim;
 	}
 
-	public void setFim(NodoDupla fim) {
+	public void setFim(Nodo fim) {
 		this.fim = fim;
 	}
 	@Override
@@ -122,8 +121,8 @@ public class ListaDuplamenteEncadeada implements Lista {
 	    }
 
 	    boolean trocou;
-	    NodoDupla atual;
-	    NodoDupla proximo = null;
+	    Nodo atual;
+	    Nodo proximo = null;
 
 	    do {
 	        trocou = false;
@@ -144,7 +143,7 @@ public class ListaDuplamenteEncadeada implements Lista {
 	@Override
 	public int tamanho() {
 	    int tamanho = 0;
-	    NodoDupla aux = inicio;
+	    Nodo aux = inicio;
 	    while (aux != null) {
 	        tamanho++;
 	        aux = aux.getProx();
@@ -155,7 +154,7 @@ public class ListaDuplamenteEncadeada implements Lista {
     @Override
     public Lista copiar() {
         ListaDuplamenteEncadeada copia = new ListaDuplamenteEncadeada();
-        NodoDupla aux = inicio;
+        Nodo aux = inicio;
         while (aux != null) {
             copia.inserirFinal(aux.getDado());
             aux = aux.getProx();
@@ -165,21 +164,21 @@ public class ListaDuplamenteEncadeada implements Lista {
 
     @Override
     public void inverter() {
-        NodoDupla aux = inicio;
+        Nodo aux = inicio;
         while (aux != null) {
-            NodoDupla temp = aux.getProx();
+            Nodo temp = aux.getProx();
             aux.setProx(aux.getAnt());
             aux.setAnt(temp);
             aux = temp;
         }
-        NodoDupla temp = inicio;
+        Nodo temp = inicio;
         inicio = fim;
         fim = temp;
     }
 
     @Override
     public boolean buscar(int valor) {
-        NodoDupla aux = inicio;
+        Nodo aux = inicio;
         while (aux != null) {
             if (aux.getDado() == valor) {
                 return true;
