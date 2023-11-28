@@ -30,7 +30,7 @@ public class ListaEncadeada implements Lista{
 	    } else {
 	        Nodo aux = inicio;
 	        while (aux != null) {
-	            resultado.append(aux.getDado()).append(" ");
+	            resultado.append(aux.getDado());
 	            aux = aux.getProx();
 	        }
 	        resultado.append("\n");

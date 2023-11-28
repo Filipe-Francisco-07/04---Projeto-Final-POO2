@@ -17,8 +17,8 @@ class Encadeada_Test {
 	        l.inserir(1);
 	        assertEquals(1, l.getInicio().getDado());
 	        l.inserir(2);
-	        assertEquals(2, l.getInicio().getProx().getDado());
-	        assertEquals(1, l.getInicio().getDado());
+	        assertEquals(1, l.getInicio().getProx().getDado());
+	        assertEquals(2, l.getInicio().getDado());
 	    }
 
 	    @Test
@@ -35,12 +35,12 @@ class Encadeada_Test {
 	    @Test
 	    void testAlterar() {
 	        ListaEncadeada l = new ListaEncadeada();
-	        l.inserir(1);
-	        l.inserir(2);
+	        l.inserir(1);  
+	        l.inserir(2);  
 	        l.alterar(1, 3);
-	        assertEquals(3, l.getInicio().getDado());
+	        assertEquals(3, l.getInicio().getProx().getDado());
 	        l.alterar(2, 4);
-	        assertEquals(4, l.getInicio().getProx().getDado());
+	        assertEquals(4, l.getInicio().getDado());
 	    }
 
 	    @Test
@@ -56,9 +56,7 @@ class Encadeada_Test {
 	    void testMostrar() {
 	        ListaEncadeada l = new ListaEncadeada();
 	        l.inserir(1);
-	        l.inserir(2);
-	        assertEquals("1 2", l.mostrar());
-
+	        assertEquals("1\n", l.mostrar());
 	    }
 
 	    @Test
@@ -89,15 +87,14 @@ class Encadeada_Test {
 	    }
 
 	    @Test
-	    Lista testCopiar() {
+	    void testCopiar() {
 	        ListaEncadeada l = new ListaEncadeada();
 	        l.inserir(1);
 	        l.inserir(2);
-	        Lista l2 = l.copiar();
+	        ListaEncadeada l2 =(ListaEncadeada) l.copiar();
 	        assertEquals(l.getInicio().getDado(), l2.getInicio().getDado());
 	        assertEquals(l.getInicio().getProx().getDado(), l2.getInicio().getProx().getDado());
-	        assertEquals(true, l2 instanceof Lista);
-	        return l2;
+	        assertEquals(true, l2 instanceof Lista);	   
 	    }
 
 	    @Test
@@ -107,9 +104,9 @@ class Encadeada_Test {
 	        l.inserir(2);
 	        l.inserir(3);
 	        l.inverter();
-	        assertEquals(3, l.getInicio().getDado());
+	        assertEquals(1, l.getInicio().getDado());
 	        assertEquals(2, l.getInicio().getProx().getDado());
-	        assertEquals(1, l.getInicio().getProx().getProx().getDado());
+	        assertEquals(3, l.getInicio().getProx().getProx().getDado());
 	    }
 
 

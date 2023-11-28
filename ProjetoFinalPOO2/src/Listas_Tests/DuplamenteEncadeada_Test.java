@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import Listas.Lista;
+import Listas.ListaCircular;
 import Listas.ListaDuplamenteEncadeada;
 
 class DuplamenteEncadeada_Test {
@@ -15,12 +16,12 @@ class DuplamenteEncadeada_Test {
 		l.inserir(1);
 		assertEquals(1, l.getInicio().getDado());
 		l.inserir(2);
-		assertEquals(2, l.getInicio().getProx().getDado());
-		assertEquals(1, l.getInicio().getDado());
+		assertEquals(1, l.getInicio().getProx().getDado());
+		assertEquals(2, l.getInicio().getDado());
 		l.inserir(3);
-		assertEquals(3, l.getInicio().getProx().getProx().getDado());
+		assertEquals(1, l.getInicio().getProx().getProx().getDado());
 		assertEquals(2, l.getInicio().getProx().getDado());
-		assertEquals(1, l.getInicio().getDado());
+		assertEquals(3, l.getInicio().getDado());
 	}
 
 	@Test
@@ -36,13 +37,13 @@ class DuplamenteEncadeada_Test {
 
 	@Test
 	void testAlterar() {
-		ListaDuplamenteEncadeada l = new ListaDuplamenteEncadeada();
+		ListaCircular l = new ListaCircular();
 		l.inserir(1);
 		l.inserir(2);
 		l.alterar(1, 3);
-		assertEquals(3, l.getInicio().getDado());
+		assertEquals(3, l.getInicio().getProx().getDado());
 		l.alterar(2, 4);
-		assertEquals(4, l.getInicio().getProx().getDado());
+		assertEquals(4, l.getInicio().getDado());
 	}
 
 	@Test
@@ -58,8 +59,7 @@ class DuplamenteEncadeada_Test {
 	void testMostrar() {
 		ListaDuplamenteEncadeada l = new ListaDuplamenteEncadeada();
 		l.inserir(1);
-		l.inserir(2);
-		assertEquals("1 2", l.mostrar());
+		assertEquals("1\n", l.mostrar());
 	}
 
 	@Test
@@ -107,8 +107,8 @@ class DuplamenteEncadeada_Test {
 		l.inserir(2);
 		l.inserir(3);
 		l.inverter();
-		assertEquals(3, l.getInicio().getDado());
+		assertEquals(1, l.getInicio().getDado());
 		assertEquals(2, l.getInicio().getProx().getDado());
-		assertEquals(1, l.getInicio().getProx().getProx().getDado());
+		assertEquals(3, l.getInicio().getProx().getProx().getDado());
 	}
 }

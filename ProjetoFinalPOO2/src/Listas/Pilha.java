@@ -1,7 +1,15 @@
 package Listas;
 
-public class Pilha implements Lista{
+/**
+ * Classe da estrutura de dados Pilha
+ */
 
+public class Pilha implements Lista{
+	/**
+	 * @param limite Define o numero maximo de elementos que a pilha tera.
+	 * @param tamanho Define o numero de elementos que a pilha tem, é atualizado a cada inserção ou remoção.
+	 * @param topo A pilha trabalha com o nodo chamado topo, que controla apenas o primeiro elemento da lista.
+	 */
 	private Nodo topo;
 	private int tamanho = 0;
 	private int limite = 0;
@@ -30,14 +38,28 @@ public class Pilha implements Lista{
 	}
 
 
-	public void remover(int valor) {
+	public void remover(int dado) {
 	    if (!estaVazio()) {
-	        if (topo.getDado() == valor) {
-	            System.out.println(valor + " foi retirado da pilha!");
-	            topo = topo.getProx();
+	        Nodo atual = topo;
+	        Nodo anterior = null;
+
+	        while (atual != null && atual.getDado() != dado) {
+	            anterior = atual;
+	            atual = atual.getProx();
+	        }
+
+	        if (atual != null) {
+	            if (anterior == null) {
+	                System.out.println(dado + " foi retirado da pilha!");
+	                topo = atual.getProx();
+	            } else {
+	                System.out.println(dado + " foi retirado da pilha!");
+	                anterior.setProx(atual.getProx());
+	            }
+
 	            tamanho--;
 	        } else {
-	            System.out.println(valor + " não encontrado na pilha!");
+	            System.out.println(dado + " não encontrado na pilha!");
 	        }
 	    } else {
 	        System.out.println("Pilha está vazia!");
@@ -64,7 +86,7 @@ public class Pilha implements Lista{
 	    if (!estaVazio()) {
 	        Nodo aux = topo;
 	        while (aux != null) {
-	            resultado.append(aux.getDado()).append(" ");
+	            resultado.append(aux.getDado());
 	            aux = aux.getProx();
 	        }
 	        resultado.append("\n");
@@ -75,43 +97,34 @@ public class Pilha implements Lista{
 	    return resultado.toString();
 	}
 
-    @Override
-    public void ordenar() {
-        if (estaVazio() || tamanho == 1) {
-            return;
-        }
+	public void ordenar() {
+	    if (estaVazio() || tamanho == 1) {
+	        return;
+	    }
 
-        int[] array = new int[tamanho];
-        Nodo aux = topo;
-        int i = 0;
+	    Nodo atual = topo;
 
-        while (aux != null) {
-            array[i] = aux.getDado();
-            aux = aux.getProx();
-            i++;
-        }
+	    while (atual != null) {
+	        Nodo menor = atual;
+	        Nodo aux = atual.getProx();
 
-        for (i = 0; i < tamanho - 1; i++) {
-            int menorIndex = i;
+	        while (aux != null) {
+	            if (aux.getDado() < menor.getDado()) {
+	                menor = aux;
+	            }
 
-            for (int j = i + 1; j < tamanho; j++) {
-                if (array[j] < array[menorIndex]) {
-                    menorIndex = j;
-                }
-            }
+	            aux = aux.getProx();
+	        }
 
-            int temp = array[menorIndex];
-            array[menorIndex] = array[i];
-            array[i] = temp;
-        }
+	        if (menor != atual) {
+	            int temp = atual.getDado();
+	            atual.setDado(menor.getDado());
+	            menor.setDado(temp);
+	        }
 
-        while (!estaVazio()) {
-            remover(getTopo());
-        }
-        for (i = 0; i < tamanho; i++) {
-            inserir(array[i]);
-        }
-    }
+	        atual = atual.getProx();
+	    }
+	}
     @Override
     public int tamanho() {
         return tamanho;

@@ -1,6 +1,6 @@
 package Listas_Tests;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -11,50 +11,95 @@ class Pilha_Test {
 
 	@Test
 	void testInserir() {
-		fail("Not yet implemented");
+		Lista p = new Pilha(10);
+		p.inserir(1);
+		p.inserir(2);
+		assertEquals(true,p.buscar(2));
 	}
 	
 	@Test
 	void testRemover() {
-		fail("Not yet implemented");
+		Lista p = new Pilha(10);
+		p.inserir(1);
+		p.inserir(2);
+		p.remover(2);
+		assertEquals(false,p.buscar(2));
 	}
 	
 	@Test
 	void testAlterar() {
-		fail("Not yet implemented");
+		Lista p = new Pilha(10);
+		p.inserir(1);
+		p.inserir(2);
+		p.alterar(2,7);
+		assertEquals(true,p.buscar(7));
+		assertEquals(false,p.buscar(2));
 	}
 	@Test
-	boolean testBuscar() {
-		fail("Not yet implemented");
-		return false;
+	void testBuscar() {
+		Lista p = new Pilha(10);
+		p.inserir(1);
+		p.inserir(2);
+		assertEquals(true,p.buscar(1));
+		assertEquals(true,p.buscar(2));
 	}
 	
 	@Test
-	String testMostrar() {
-		fail("Not yet implemented");
-		return "";
+	void testMostrar() {
+		Lista p = new Pilha(100);
+		p.inserir(1);
+
+		assertEquals("1\n",p.mostrar());
 	}
 	
 	@Test
 	void testOrdenar() {
-		fail("Not yet implemented");
+		Pilha p = new Pilha(100);
+		p.inserir(3);
+		p.inserir(2);
+		p.inserir(1);
+		p.inserir(6);
+		p.inserir(12);
+		p.ordenar();
+		
+		assertEquals(1,p.getTopo());
+	
 	}
 	@Test
-	int testTamanho() {
-		fail("Not yet implemented");
-		return 0;
+	void testTamanho() {
+		Pilha p = new Pilha(100);
+		p.inserir(1);
+		p.inserir(2);
+		p.inserir(3);
+		p.inserir(4);
+		p.inserir(5);
+		
+		assertEquals(5,p.tamanho());
+	
 	}
 	
 	@Test
-	Lista testCopiar() {
-		fail("Not yet implemented");
-		Lista l = new Pilha(hashCode());
-		return l;
+	void testCopiar() {
+	    Pilha p = new Pilha(10);
+        p.inserir(1);
+        p.inserir(2);
+        Pilha p2 = (Pilha) p.copiar();
+        assertEquals(p.getTopo(), p2.getTopo());
+        assertEquals(true, p2 instanceof Pilha);
 	}
 	
 	@Test
 	void testInverter() {
-		fail("Not yet implemented");
+		Pilha p = new Pilha(100);
+		p.inserir(1);
+		p.inserir(2);
+		p.inserir(3);
+		p.inserir(4);
+		p.inserir(5);
+		
+		p.inverter();
+		
+		assertEquals(5,p.getTopo());
 	}
 	
 

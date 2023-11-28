@@ -1,21 +1,29 @@
 package Main;
 
-import Listas.Lista;
-import Listas.ListaEncadeada;
+import Listas.*;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		Lista lista = new ListaEncadeada();
+		Lista lista = new Pilha(10);
 		
-		lista.inserir(1);	
-		lista.inserir(2);	
 		lista.inserir(3);	
-		lista.remover(2);
+		lista.inserir(5);
+		lista.inserir(2);
+		String l = lista.mostrar();
+		System.out.print(l);
 		
-		lista.mostrar();
+		lista.ordenar();
+		l = lista.mostrar();
 		
+		System.out.print(l);
+		
+		
+		lista.remover(3);
+		l = lista.mostrar();
+		
+		System.out.print(l);
 		
 		}
 

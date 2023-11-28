@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import Listas.Fila;
-import Listas.Lista;
 
 class Fila_Test {
 
@@ -83,7 +82,7 @@ class Fila_Test {
     }
 
     @Test
-    Lista testCopiar() {
+    void testCopiar() {
         Fila f = new Fila(10);
         f.inserir(1);
         f.inserir(2);
@@ -91,7 +90,6 @@ class Fila_Test {
         assertEquals(f.getInicio().getDado(), f2.getInicio().getDado());
         assertEquals(f.getInicio().getProx().getDado(), f2.getInicio().getProx().getDado());
         assertEquals(true, f2 instanceof Fila);
-        return f2;
     }
 
     @Test
