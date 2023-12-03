@@ -75,7 +75,6 @@ class Pilha_Test {
 		p.inserir(5);
 		
 		assertEquals(5,p.tamanho());
-	
 	}
 	
 	@Test

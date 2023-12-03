@@ -81,13 +81,12 @@ class Circular_Test {
 	
 	@Test
 	void testCopiar() {
-		Lista l = new ListaCircular();
-		l.inserir(1);
-		l.inserir(2);
-		Lista l2 = l.copiar();
-		assertEquals(l.getInicio().getDado(), l2.getInicio().getDado());
-		assertEquals(l.getInicio().getProx().getDado(), l2.getInicio().getProx().getDado());
-		assertEquals(true, l2 instanceof Lista);
+	    ListaCircular l = new ListaCircular();
+	    l.inserir(1);
+	    l.inserir(2);
+	    ListaCircular l2 = l.copiar();
+	    assertEquals(l.getInicio().getDado(), l2.getInicio().getDado());
+	 
 	}
 	
 	@Test

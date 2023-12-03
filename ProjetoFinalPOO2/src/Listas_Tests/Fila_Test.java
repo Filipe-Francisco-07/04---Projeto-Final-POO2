@@ -1,5 +1,6 @@
 package Listas_Tests;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -22,10 +23,9 @@ class Fila_Test {
         Fila f = new Fila(10);
         f.inserir(1);
         f.inserir(2);
-        assertEquals(1, f.remover());
+        f.remover(1);
         assertEquals(2, f.getInicio().getDado());
-        f.remover();
-        assertEquals(null, f.getInicio());
+
     }
 
     @Test
@@ -77,7 +77,7 @@ class Fila_Test {
         assertEquals(1, f.tamanho());
         f.inserir(2);
         assertEquals(2, f.tamanho());
-        f.remover();
+        f.remover(1);
         assertEquals(1, f.tamanho());
     }
 

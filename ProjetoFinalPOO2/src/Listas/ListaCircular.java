@@ -1,16 +1,28 @@
 package Listas;
 
+/**
+ * Classe da estrutura de dados Lista Circular.
+ * @author filipefranciscof3@gmail.com
+ * 
+ * @param inicio Parâmetro que utiliza a classe nodo e marca o primeiro elemento presente na fila;
+ * @param fim Parâmetro que utiliza a classe nodo e marca o último elemento presente na fila;
+ */
 public class ListaCircular implements Lista{
 
 		private Nodo inicio;
 		private Nodo fim;
-		
+		/**
+		 * Construtor da lista circular.
+		 */
 		public ListaCircular() {
 			inicio = null;
 		}
 		
 		public Nodo getInicio() {
 			return inicio;
+		}
+		public void setInicio(Nodo inicio) {
+			this.inicio = inicio;
 		}
 
 		public Nodo getFim() {
@@ -82,18 +94,6 @@ public class ListaCircular implements Lista{
 			System.out.println(i);	
 		}
 		
-		public void inserirFinal(int dado) {
-			Nodo novoNodo = new Nodo(dado);
-			if(inicio == null) {
-				inicio = novoNodo;
-			}else {
-				fim.setProx(novoNodo);
-				fim = novoNodo;
-				novoNodo.setProx(inicio);
-			}
-			
-		}
-		
 		public boolean buscar(int valor) {
 			if(inicio == null) return false;	
 		
@@ -154,13 +154,20 @@ public class ListaCircular implements Lista{
 		}
 
 		@Override
-		public Lista copiar() {
+		public ListaCircular copiar() {
 		    ListaCircular copia = new ListaCircular();
 		    Nodo aux = inicio;
+		    Nodo novoInicio = null;
+
 		    do {
-		        copia.inserirFinal(aux.getDado());
+		        copia.inserir(aux.getDado());
+		        if (novoInicio == null) {
+		            novoInicio = copia.getFim();
+		        }
 		        aux = aux.getProx();
 		    } while (aux != inicio);
+
+		    copia.setInicio(novoInicio);
 		    return copia;
 		}
 

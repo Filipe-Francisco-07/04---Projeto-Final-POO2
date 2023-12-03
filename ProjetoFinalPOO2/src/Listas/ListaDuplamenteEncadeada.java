@@ -1,10 +1,21 @@
 package Listas;
-
+/**
+ * Classe da estrutura de dados Lista Duplamente Encadeada.
+ * @author filipefranciscof3@gmail.com
+ * 
+ * @param inicio Parâmetro que utiliza a classe nodo e marca o primeiro elemento presente na fila;
+ * @param fim Parâmetro que utiliza a classe nodo e marca o último elemento presente na fila;
+ */
 public class ListaDuplamenteEncadeada implements Lista {
 	private Nodo inicio;
 	private Nodo fim;
-	
-	
+	/**
+	 * Construtor da lista duplamente encadeada.
+	 */
+	public ListaDuplamenteEncadeada() {
+		inicio = null;
+		fim = null;
+	}
 	
 	public void inserir(int dado) {
 		Nodo novo = new Nodo(dado);
@@ -152,7 +163,7 @@ public class ListaDuplamenteEncadeada implements Lista {
     }
 
     @Override
-    public Lista copiar() {
+    public ListaDuplamenteEncadeada copiar() {
         ListaDuplamenteEncadeada copia = new ListaDuplamenteEncadeada();
         Nodo aux = inicio;
         while (aux != null) {

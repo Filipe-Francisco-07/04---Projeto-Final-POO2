@@ -3,16 +3,15 @@ package Listas;
 import java.util.Stack;
 /**
  * Classe da estrutura de dados Fila.
+ * @author filipefranciscof3@gmail.com
+ * 
+ * @param inicio Parâmetro que utiliza a classe nodo e marca o primeiro elemento presente na fila;
+ * @param fim Parâmetro que utiliza a classe nodo e marca o último elemento presente na fila;
+ * @param limite Parâmetro inteiro que informa o número máximo de elementos que a fila poderá ter;
+ * @param tamanho Parâmetro do tipo inteiro que sinaliza o número de elementos da fila, sendo modificado após uma inserção ou remoção.
  */
 public class Fila implements Lista{
-	
 
-	/**
-	 *  @param inicio Parâmetro que utiliza a classe nodo e recebe marca o primeiro elemento presente na fila;
-	 *  @param fim Parâmetro que utiliza a classe nodo e marca o último elemento presente na fila;
-	 * @param limite Parâmetro inteiro que informa o número máximo de elementos que a fila poderá ter;
-	 * @param tamanho Parâmetro do tipo inteiro que sinaliza o número de elementos da fila, sendo modificado após uma inserção ou remoção.
-	 */
 	
 		private Nodo inicio = null;
 		private Nodo fim;
@@ -43,7 +42,7 @@ public class Fila implements Lista{
 		}
 		/**
 		 * getInicio
-		 * @return retorna o nodo de inicio se a fila não estiver vazia, caso contrário retorna nulo. 
+		 * @return retorna o nodo de inicio se a fila não estiver vazia, caso contrário retornará nulo. 
 		 */
 		public Nodo getInicio() {
 			if(!estaVazio()) {
@@ -53,10 +52,6 @@ public class Fila implements Lista{
 				return null;
 			}
 		}
-		/**
-		 * Método de inserção, adiciona um elemento à fila;
-		 * @param dado recebe como parâmetro um inteiro que será adicionado à fila;
-		 */
 		public void inserir(int dado) {
 			if(temEspaco()) {
 				Nodo novo = new Nodo(dado);
@@ -72,38 +67,8 @@ public class Fila implements Lista{
 				System.out.println("Fila cheia!");
 			}
 		}
-		public Integer remover() {
-			if(estaVazio()) {
-				return null;
-			}
-			int valor = inicio.getDado();
-			inicio = inicio.getProx();
-			tamanho--;
-			if(estaVazio()) {
-				fim = null;
-			}
-			return valor;
-		}
-		
-		public void separaFila(Fila F,Fila F_Par,Fila F_Impar) {
-			
-			while(!F.estaVazio()) {
-				int num = F.remover();
-				if(num % 2 == 0) {
-					F_Par.inserir(num);
-				}else {
-					F_Impar.inserir(num);
-				}
-		
-			}
-			
-		}
 
 		@Override
-		/**
-		 * Método de busca, procura por um valor dentro da fila;
-		 * @return retorna true se o valor da busca for encontrado, caso contrário retorna false.
-		 */
 		public boolean buscar(int valor) {
 			Nodo atual = inicio;
 		    while (atual != null) {
@@ -116,9 +81,6 @@ public class Fila implements Lista{
 		}
 
 		@Override
-		/**
-		 * Método de ordenação, ordena a fila por ordem crescente;
-		 */
 		public void ordenar() {
 		    Nodo atual, proximo;
 		    boolean trocou;
@@ -139,19 +101,12 @@ public class Fila implements Lista{
 		}
 
 		@Override
-		/**
-		 * Método de tamanho
-		 * @return retorna o número de elementos da fila.
-		 */
+
 		public int tamanho() {
 		    return tamanho;
 		}
 
 		@Override
-		/**
-		 * Método de cópia, realiza uma cópia da fila na qual o método foi utilizado;
-		 * @return retorna um cópia do tipo Lista da fila.
-		 */
 		public Lista copiar() {
 		    Fila copia = new Fila(limite);
 		    Nodo atual = inicio;
@@ -163,9 +118,7 @@ public class Fila implements Lista{
 		}
 
 		@Override
-		/**
-		 * Método de inversão, inverte os elementos da fila;
-		 */
+	
 		public void inverter() {
 		    Stack<Integer> pilha = new Stack<>();
 		    Nodo atual = inicio;
@@ -181,10 +134,6 @@ public class Fila implements Lista{
 		}
 
 		@Override
-		/**
-		 * Método de remoção, remove um elemento;
-		 * @param valor percorre a fila procurando se o valor à ser removido é igual ao valor atual, caso seja, será removido.
-		 */
 		public void remover(int valor) {
 		    Nodo atual = inicio;
 		    Nodo anterior = null;
@@ -208,11 +157,6 @@ public class Fila implements Lista{
 		}
 
 		@Override
-		/**
-		 * Método de alteração, modifica um elemento;
-		 * @param valorAntigo percorre a fila procurando se o valor à ser modificado é igual ao valor atual, caso seja, será alterado;
-		 *@param novoValor modifica o valor que foi encontrado (valor da fila no qual é igual ao valorAntigo).
-		 */
 		public void alterar(int valorAntigo, int novoValor) {
 		    Nodo atual = inicio;
 		    while (atual != null) {
@@ -224,9 +168,6 @@ public class Fila implements Lista{
 		}
 
 		@Override
-		/**
-		 * Método de mostrar, retorna uma string com todos os elementos presentes na fila.
-		 */
 		public String mostrar() {
 		    StringBuilder resultado = new StringBuilder();
 
@@ -238,4 +179,5 @@ public class Fila implements Lista{
 
 		    return resultado.toString();
 		}
+
 }

@@ -1,28 +1,44 @@
 package Listas;
 
 /**
- * Classe da estrutura de dados Pilha
- */
+  Classe da estrutura de dados Pilha;
+* @author filipefranciscof3@gmail.com
+* @param limite Define o numero maximo de elementos que a pilha tera;
+* @param tamanho Define o numero de elementos que a pilha tem, é atualizado a cada inserção ou remoção;
+* @param topo A pilha trabalha com o nodo chamado topo, que controla apenas o primeiro elemento da lista.
+*/
 
 public class Pilha implements Lista{
-	/**
-	 * @param limite Define o numero maximo de elementos que a pilha tera.
-	 * @param tamanho Define o numero de elementos que a pilha tem, é atualizado a cada inserção ou remoção.
-	 * @param topo A pilha trabalha com o nodo chamado topo, que controla apenas o primeiro elemento da lista.
-	 */
+
 	private Nodo topo;
 	private int tamanho = 0;
 	private int limite = 0;
 	
+	/**
+	  Construtor da estrutura de dados Pilha;
+	* @param limite Define o numero maximo de elementos que a pilha tera;
+	*/
 	public Pilha(int limite) {
 		this.limite=limite;
 	}
+	/**
+	 * Metodo getTopo;
+	* @return retorna o topo da pilha.
+	*/
 	public int getTopo() {
 		return topo.getDado();
 	}
+	/**
+	 * Metodo estaVazio;
+	* @return retorna verdadeiro se o tamanho da pilha for igual a zero.
+	*/
 	public boolean estaVazio() {
 		return tamanho == 0;
 	}
+	/**
+	 * Metodo temEspaco;
+	* @return retorna verdadeiro enquanto o limite for maior que o tamanho.
+	*/
 	public boolean temEspaco() {
 		return limite > tamanho;
 	}
@@ -131,7 +147,7 @@ public class Pilha implements Lista{
     }
 
     @Override
-    public Lista copiar() {
+    public Pilha copiar() {
         Pilha copia = new Pilha(limite);
         Nodo aux = topo;
         Pilha auxPilha = new Pilha(limite);
@@ -181,28 +197,7 @@ public class Pilha implements Lista{
 
         return false;
     }
-    
- // inserir (push)
- 	public void push(int dado) {
- 		if(temEspaco()) {
- 			Nodo novo = new Nodo(dado);
- 			novo.setProx(topo);
- 			topo = novo;
- 			tamanho++;
- 		}else {
- 			System.out.println("Pilha cheia!!!");
- 		}
- 	}
- 	// remover (pop)
- 	public void pop() {
- 		if(!estaVazio()) {
- 			System.out.println(topo.getDado()+" foi retirado da pilha!");
- 			topo = topo.getProx();
- 			tamanho--;
- 		}else {
- 			System.out.println("Pilha está vazia!");
- 		}
- 	}
+ 	
 	@Override
 	public Nodo getInicio() {
 		// TODO Auto-generated method stub

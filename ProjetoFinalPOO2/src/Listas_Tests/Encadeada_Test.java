@@ -89,11 +89,10 @@ class Encadeada_Test {
 	    @Test
 	    void testCopiar() {
 	        ListaEncadeada l = new ListaEncadeada();
-	        l.inserir(1);
-	        l.inserir(2);
-	        ListaEncadeada l2 =(ListaEncadeada) l.copiar();
-	        assertEquals(l.getInicio().getDado(), l2.getInicio().getDado());
-	        assertEquals(l.getInicio().getProx().getDado(), l2.getInicio().getProx().getDado());
+	        l.inserirFinal(1);
+	        l.inserirFinal(2);
+	        Lista l2 = l.copiar();
+	        assertEquals(l.getInicio(), l2.getInicio());
 	        assertEquals(true, l2 instanceof Lista);	   
 	    }
 

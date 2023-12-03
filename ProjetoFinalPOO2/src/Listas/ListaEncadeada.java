@@ -1,13 +1,23 @@
 package Listas;
 
+/**
+ * Classe da estrutura de dados Lista Duplamente Encadeada.
+ * @author filipefranciscof3@gmail.com
+ * @param inicio Parâmetro que utiliza a classe nodo e marca o primeiro elemento presente na lista;
+ */
 public class ListaEncadeada implements Lista{
 
 	private Nodo inicio;
-	
+	/**
+	 * Construtor da lista encadeada.
+	 */
 	public ListaEncadeada() {
 		inicio = null;
 	}
-	
+	/**
+	 * Metodo Vazia, verifica se a lista esta vazia;
+	 * @return retorna verdadeiro se o inicio for vazio.
+	 */
 	public boolean vazia() {
 		return inicio == null;
 	}
@@ -170,7 +180,7 @@ public class ListaEncadeada implements Lista{
     }
 
     @Override
-    public Lista copiar() {
+    public ListaEncadeada copiar() {
         ListaEncadeada copia = new ListaEncadeada();
         Nodo aux = inicio;
 
