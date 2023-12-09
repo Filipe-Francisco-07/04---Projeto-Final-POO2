@@ -14,8 +14,8 @@ public class Fila implements Lista{
 		private int tamanho = 0;
 		
 		/**
-		 * Construtor da fila, recebe como parâmetro o limite máximo de elementos.
-		 * @param limite Parâmetro inteiro que informa o número máximo de elementos que a fila poderá ter;
+		 * Construtor da fila, recebe como parametro o limite maximo de elementos.
+		 * @param limite Parametro inteiro que informa o numero maximo de elementos que a fila podera ter;
 		 */
 		public Fila(int limite) {
 			this.limite=limite;
@@ -37,7 +37,7 @@ public class Fila implements Lista{
 		}
 		/**
 		 * getInicio
-		 * @return retorna o nodo de inicio se a fila não estiver vazia, caso contrário retornará nulo. 
+		 * @return retorna o nodo de inicio se a fila nao estiver vazia, caso contrário retornara nulo. 
 		 */
 		
 		@Override
@@ -45,7 +45,7 @@ public class Fila implements Lista{
 			if(!estaVazio()) {
 				return inicio;
 			}else {
-				System.out.println("Fila está vazia!");
+				System.out.println("Fila esta vazia!");
 				return null;
 			}
 		}

@@ -1,13 +1,13 @@
 package Listas;
 /**
- * Classe ListaFactory, classe que vai gerar a lista desejada;
+ * Classe ListaFactory: classe que vai gerar a lista desejada;
  * 
  * @author filipefranciscof3@gmail.com
  */
 public class ListaFactory {
 
     /**
-     * Metodo createLista, retorna a lista conforme o tipo passado pelo usuário.
+     * Metodo createLista, retorna a lista conforme o tipo passado pelo usuario.
      * Tipos disponiveis: encadeada, duplamenteEncadeada e circular.
      *
      * @param tipo Tipo de lista desejada.
@@ -29,7 +29,7 @@ public class ListaFactory {
     }
 
     /**
-     * Metodo createLista, retorna a lista conforme o tipo passado pelo usuário e o limite especificado.
+     * Metodo createLista, retorna a lista conforme o tipo passado pelo usuario e o limite especificado.
      * Tipos disponiveis: fila e pilha.
      *
      * @param tipo   Tipo de lista desejada.
@@ -38,7 +38,7 @@ public class ListaFactory {
      * 
      * @return Instancia da lista desejada.
      * 
-     * @throws IllegalArgumentException Se o tipo de lista for inválido.
+     * @throws IllegalArgumentException Se o tipo de lista for invalido.
      */
     public Lista createLista(String tipo, int limite) {
         if (tipo.equals("fila")) {

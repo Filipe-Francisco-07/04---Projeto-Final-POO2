@@ -63,7 +63,7 @@ public interface Lista {
     /**
 	 * Metodo getInicio
 	 * 
-	 * @return retorna o nodo de inicio se a lista não estiver vazia, caso contrário retornara nulo. 
+	 * @return retorna o nodo de inicio se a lista nao estiver vazia, caso contrario retornara nulo. 
 	 */
     public Nodo getInicio();
 }
