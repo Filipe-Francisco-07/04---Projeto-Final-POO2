@@ -3,9 +3,6 @@ package Listas;
 /**
   Classe da estrutura de dados Pilha;
 * @author filipefranciscof3@gmail.com
-* @param limite Define o numero maximo de elementos que a pilha tera;
-* @param tamanho Define o numero de elementos que a pilha tem, é atualizado a cada inserção ou remoção;
-* @param topo A pilha trabalha com o nodo chamado topo, que controla apenas o primeiro elemento da lista.
 */
 
 public class Pilha implements Lista{

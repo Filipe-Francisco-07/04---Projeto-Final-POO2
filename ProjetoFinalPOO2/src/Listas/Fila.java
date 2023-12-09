@@ -5,14 +5,9 @@ import java.util.Stack;
  * Classe da estrutura de dados Fila.
  * @author filipefranciscof3@gmail.com
  * 
- * @param inicio Parâmetro que utiliza a classe nodo e marca o primeiro elemento presente na fila;
- * @param fim Parâmetro que utiliza a classe nodo e marca o último elemento presente na fila;
- * @param limite Parâmetro inteiro que informa o número máximo de elementos que a fila poderá ter;
- * @param tamanho Parâmetro do tipo inteiro que sinaliza o número de elementos da fila, sendo modificado após uma inserção ou remoção.
  */
 public class Fila implements Lista{
 
-	
 		private Nodo inicio = null;
 		private Nodo fim;
 		private int limite = 0;
@@ -26,7 +21,7 @@ public class Fila implements Lista{
 			this.limite=limite;
 		}
 		/**
-		 * Método estaVazio
+		 * Metodo estaVazio
 		 * @return retorna verdadeiro se o tamanho for igual a 0 (sem elementos na Fila).
 		 */
 		
@@ -34,7 +29,7 @@ public class Fila implements Lista{
 			return tamanho == 0;
 		}
 		/**
-		 * Método tem espaço;
+		 * Metodo tem espaco;
 		 * @return retorna verdadeiro se o limite for maior que o tamanho.
 		 */
 		public boolean temEspaco() {
@@ -44,6 +39,8 @@ public class Fila implements Lista{
 		 * getInicio
 		 * @return retorna o nodo de inicio se a fila não estiver vazia, caso contrário retornará nulo. 
 		 */
+		
+		@Override
 		public Nodo getInicio() {
 			if(!estaVazio()) {
 				return inicio;
@@ -52,6 +49,7 @@ public class Fila implements Lista{
 				return null;
 			}
 		}
+		@Override
 		public void inserir(int dado) {
 			if(temEspaco()) {
 				Nodo novo = new Nodo(dado);
@@ -101,7 +99,6 @@ public class Fila implements Lista{
 		}
 
 		@Override
-
 		public int tamanho() {
 		    return tamanho;
 		}
@@ -118,7 +115,6 @@ public class Fila implements Lista{
 		}
 
 		@Override
-	
 		public void inverter() {
 		    Stack<Integer> pilha = new Stack<>();
 		    Nodo atual = inicio;
@@ -179,5 +175,4 @@ public class Fila implements Lista{
 
 		    return resultado.toString();
 		}
-
 }

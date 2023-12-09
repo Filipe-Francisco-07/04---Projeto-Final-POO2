@@ -6,26 +6,30 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Lista list = new Pilha(10);
-		ListaFacade lf = new ListaFacade(list);
+		ListaFactory lfactory = new ListaFactory();
+		Lista listCirc = lfactory.createLista("circular");
+		Lista listEncad = lfactory.createLista("encadeada");
 		
-		lf.inserir(3);	
-		lf.inserir(5);
-		lf.inserir(2);
-		String l = lf.mostrar();
-		System.out.print(l);
+		ListaComposite l = new ListaComposite();		
 		
-		lf.ordenar();
-		l = lf.mostrar();
+		l.adicionarLista(listCirc);
+		l.adicionarLista(listEncad);
 		
-		System.out.print(l);
+		l.inserir(3);	
+		l.inserir(5);
+		l.inserir(2);
+		String saida = l.mostrar();
+		System.out.print(saida);
 		
+		l.ordenar();
+		saida = l.mostrar();
 		
-		lf.remover(3);
-		l = lf.mostrar();
+		System.out.print(saida);
 		
-		System.out.print(l);
+		l.remover(3);
+		saida = l.mostrar();
 		
+		System.out.print(saida);
+	
 		}
-
 }

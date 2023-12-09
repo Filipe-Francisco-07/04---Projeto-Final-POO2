@@ -4,8 +4,6 @@ package Listas;
  * Classe da estrutura de dados Lista Circular.
  * @author filipefranciscof3@gmail.com
  * 
- * @param inicio Parâmetro que utiliza a classe nodo e marca o primeiro elemento presente na fila;
- * @param fim Parâmetro que utiliza a classe nodo e marca o último elemento presente na fila;
  */
 public class ListaCircular implements Lista{
 
@@ -21,14 +19,21 @@ public class ListaCircular implements Lista{
 		public Nodo getInicio() {
 			return inicio;
 		}
+		/**
+		 * Metodo setInicio
+		 * @param inicio Parametro do tipo Nodo que sera o novo inicio.
+		 */
 		public void setInicio(Nodo inicio) {
 			this.inicio = inicio;
 		}
-
+		/**
+		 * Metodo getFim
+		 * @return returna o ultimo elemento da lista.
+		 */
 		public Nodo getFim() {
 			return fim;
 		}
-		
+		@Override
 		public void inserir(int dado) {
 			Nodo novoNodo = new Nodo(dado);
 			if(inicio == null) {
@@ -41,7 +46,7 @@ public class ListaCircular implements Lista{
 				fim.setProx(inicio);
 			}
 		}
-		
+		@Override
 		public String mostrar() {
 			String lista = "";
 			if(inicio == null) return lista;
@@ -54,7 +59,7 @@ public class ListaCircular implements Lista{
 			return lista;
 		
 		}
-		
+		@Override
 		public void remover(int dado) {
 			if(inicio == null) return;	
 		
@@ -93,7 +98,7 @@ public class ListaCircular implements Lista{
 				
 			System.out.println(i);	
 		}
-		
+		@Override
 		public boolean buscar(int valor) {
 			if(inicio == null) return false;	
 		
@@ -106,10 +111,7 @@ public class ListaCircular implements Lista{
 			}while(aux != inicio);
 			return false;
 		}
-
-
-
-
+		@Override
 		public void alterar(int valorAntigo, int novoValor) {
 		    if (inicio == null) return;
 		    Nodo aux = inicio;
