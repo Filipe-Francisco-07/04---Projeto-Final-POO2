@@ -39,6 +39,7 @@ public class Pilha implements Lista{
 	public boolean temEspaco() {
 		return limite > tamanho;
 	}
+	@Override
 	public void inserir(int dado) {
 		if (temEspaco()) {
 			Nodo novo = new Nodo(dado);
@@ -49,8 +50,7 @@ public class Pilha implements Lista{
 	        System.out.println("Pilha cheia!!!");
 	    }
 	}
-
-
+	@Override
 	public void remover(int dado) {
 	    if (!estaVazio()) {
 	        Nodo atual = topo;
@@ -79,7 +79,7 @@ public class Pilha implements Lista{
 	    }
 	}
 
-	 
+	@Override
 	public void alterar(int valorAntigo, int novoValor) {
         if (!estaVazio()) {
             if (topo.getDado() == valorAntigo) {
@@ -92,7 +92,7 @@ public class Pilha implements Lista{
             System.out.println("Pilha está vazia, a alteração não foi realizada.");
         }
     }
-
+	@Override
 	public String mostrar() {
 	    StringBuilder resultado = new StringBuilder();
 	    
@@ -109,7 +109,7 @@ public class Pilha implements Lista{
 	    
 	    return resultado.toString();
 	}
-
+	@Override
 	public void ordenar() {
 	    if (estaVazio() || tamanho == 1) {
 	        return;

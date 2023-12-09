@@ -13,7 +13,7 @@ public class ListaDuplamenteEncadeada implements Lista {
 		inicio = null;
 		fim = null;
 	}
-	
+	@Override
 	public void inserir(int dado) {
 		Nodo novo = new Nodo(dado);
 		if(inicio != null) {
@@ -36,7 +36,7 @@ public class ListaDuplamenteEncadeada implements Lista {
 			inicio = novo;
 		}
 	}
-	
+	@Override
 	public void alterar(int valorAntigo, int novoValor) {
 	    Nodo aux = inicio;
 	    while (aux != null) {
@@ -74,6 +74,7 @@ public class ListaDuplamenteEncadeada implements Lista {
 			removerInicio();
 		}
 	}
+	@Override
 	public void remover(int valor) {
 		Nodo nodoRemovido = null;
 		Nodo aux = inicio;
@@ -95,7 +96,7 @@ public class ListaDuplamenteEncadeada implements Lista {
 			nodoRemovido.getProx().setAnt(nodoRemovido.getAnt());
 		}
 	}
-	
+	@Override
 	public String mostrar() {
 		String lista ="";
 		if(inicio == null)return lista;

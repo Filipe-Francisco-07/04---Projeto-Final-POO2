@@ -24,13 +24,13 @@ public class ListaEncadeada implements Lista{
 	public Nodo getInicio() {
 		return inicio;
 	}
-	
+	@Override
 	public void inserir(int dado) {
 		Nodo novoNodo = new Nodo(dado);
 		novoNodo.setProx(inicio);
 		inicio = novoNodo;
 	}
-	
+	@Override
 	public String mostrar() {
 	    StringBuilder resultado = new StringBuilder();
 
@@ -47,7 +47,7 @@ public class ListaEncadeada implements Lista{
 
 	    return resultado.toString();
 	}
-	
+
 	public void inserirFinal(int valor) {
 		if(vazia()) {
 			return;
@@ -69,7 +69,7 @@ public class ListaEncadeada implements Lista{
 		}
 		
 	}
-	
+	@Override
 	public void remover(int valor) {
 		if(vazia()) {
 			System.out.println("Null position, can't delete. :(");
@@ -88,7 +88,6 @@ public class ListaEncadeada implements Lista{
 			aux = aux.getProx();
 		}		
 	}
-	
 	public void deletarUltimo() {
 		if(inicio == null) return;
 		
@@ -106,7 +105,7 @@ public class ListaEncadeada implements Lista{
 		}
 		ant.setProx(null);
 	}
-	
+	@Override
 	public boolean buscar(int valor) {
 		if(vazia()){
 			return false;
@@ -121,7 +120,7 @@ public class ListaEncadeada implements Lista{
 		}
 		return false;
 	}
-
+	@Override
 	public void alterar(int valorAntigo, int novoValor) {
 	    if (vazia()) {
 	        System.out.println("A lista está vazia. Não é possível fazer a alteração.");
