@@ -1,6 +1,6 @@
 package Listas;
 /**
- * Interface Lista: tem todos os metodos que vao ser implementados por varios tipos de listas.
+ * Interface Lista: tem todos os metodos que vao ser implementados por varios tipos de listas;
  * 
  * @author filipefranciscof3@gmail.com
  */
@@ -9,7 +9,7 @@ public interface Lista {
 	/**
 	 * Metodo de insercao, adiciona um elemento a lista;
 	 * 
-	 * @param valor recebe como parametro um inteiro que sera adicionado a lista;
+	 * @param valor recebe como parametro um inteiro que sera adicionado a lista.
 	 */
     void inserir(int valor);
     /**
@@ -61,7 +61,7 @@ public interface Lista {
 	 */
     void inverter();
     /**
-	 * Metodo getInicio
+	 * Metodo getInicio;
 	 * 
 	 * @return retorna o nodo de inicio se a lista nao estiver vazia, caso contrario retornara nulo. 
 	 */

@@ -10,24 +10,24 @@ public class Main {
 		Lista listCirc = lfactory.createLista("circular");
 		Lista listEncad = lfactory.createLista("encadeada");
 		
-		ListaComposite l = new ListaComposite();		
+		ListaComposite comp = new ListaComposite();		
 		
-		l.adicionarLista(listCirc);
-		l.adicionarLista(listEncad);
+		comp.adicionarLista(listCirc);
+		comp.adicionarLista(listEncad);
 		
-		l.inserir(3);	
-		l.inserir(5);
-		l.inserir(2);
-		String saida = l.mostrar();
+		comp.inserir(3);	
+		comp.inserir(5);
+		comp.inserir(2);
+		String saida = comp.mostrar();
 		System.out.print(saida);
 		
-		l.ordenar();
-		saida = l.mostrar();
+		comp.ordenar();
+		saida = comp.mostrar();
 		
 		System.out.print(saida);
 		
-		l.remover(3);
-		saida = l.mostrar();
+		comp.remover(3);
+		saida = comp.mostrar();
 		
 		System.out.print(saida);
 	

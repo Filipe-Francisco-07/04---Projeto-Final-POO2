@@ -1,6 +1,7 @@
 package Listas;
 /**
  * Classe da estrutura de dados Lista Duplamente Encadeada.
+ * 
  * @author filipefranciscof3@gmail.com
  */
 public class ListaDuplamenteEncadeada implements Lista {

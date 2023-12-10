@@ -1,7 +1,8 @@
 package Listas;
 
 /**
- * Classe da estrutura de dados Lista Duplamente Encadeada.
+ * Classe da estrutura de dados Lista Encadeada.
+ * 
  * @author filipefranciscof3@gmail.com
  */
 public class ListaEncadeada implements Lista{
@@ -15,6 +16,7 @@ public class ListaEncadeada implements Lista{
 	}
 	/**
 	 * Metodo Vazia, verifica se a lista esta vazia;
+	 * 
 	 * @return retorna verdadeiro se o inicio for vazio.
 	 */
 	public boolean vazia() {

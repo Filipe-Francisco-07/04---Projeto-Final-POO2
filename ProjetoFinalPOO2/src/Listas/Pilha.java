@@ -1,7 +1,8 @@
 package Listas;
 
 /**
-  Classe da estrutura de dados Pilha;
+* Classe da estrutura de dados Pilha;
+* 
 * @author filipefranciscof3@gmail.com
 */
 
@@ -12,28 +13,32 @@ public class Pilha implements Lista{
 	private int limite = 0;
 	
 	/**
-	  Construtor da estrutura de dados Pilha;
-	* @param limite Define o numero maximo de elementos que a pilha tera;
+	* Construtor da estrutura de dados Pilha;
+	* 
+	* @param limite Define o numero maximo de elementos que a pilha tera.
 	*/
 	public Pilha(int limite) {
 		this.limite=limite;
 	}
 	/**
-	 * Metodo getTopo;
+	* Metodo getTopo;
+	* 
 	* @return retorna o topo da pilha.
 	*/
 	public int getTopo() {
 		return topo.getDado();
 	}
 	/**
-	 * Metodo estaVazio;
+	* Metodo estaVazio;
+	* 
 	* @return retorna verdadeiro se o tamanho da pilha for igual a zero.
 	*/
 	public boolean estaVazio() {
 		return tamanho == 0;
 	}
 	/**
-	 * Metodo temEspaco;
+	* Metodo temEspaco;
+	* 
 	* @return retorna verdadeiro enquanto o limite for maior que o tamanho.
 	*/
 	public boolean temEspaco() {
@@ -197,7 +202,7 @@ public class Pilha implements Lista{
  	
 	@Override
 	public Nodo getInicio() {
-		// TODO Auto-generated method stub
+		// f
 		return null;
 	}
 }

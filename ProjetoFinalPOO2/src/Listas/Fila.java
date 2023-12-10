@@ -3,6 +3,7 @@ package Listas;
 import java.util.Stack;
 /**
  * Classe da estrutura de dados Fila.
+ * 
  * @author filipefranciscof3@gmail.com
  * 
  */
@@ -14,14 +15,16 @@ public class Fila implements Lista{
 		private int tamanho = 0;
 		
 		/**
-		 * Construtor da fila, recebe como parametro o limite maximo de elementos.
-		 * @param limite Parametro inteiro que informa o numero maximo de elementos que a fila podera ter;
+		 * Construtor da fila, recebe como parametro o limite maximo de elementos;
+		 * 
+		 * @param limite Parametro inteiro que informa o numero maximo de elementos que a fila podera ter.
 		 */
 		public Fila(int limite) {
 			this.limite=limite;
 		}
 		/**
-		 * Metodo estaVazio
+		 * Metodo estaVazio;
+		 * 
 		 * @return retorna verdadeiro se o tamanho for igual a 0 (sem elementos na Fila).
 		 */
 		
@@ -30,14 +33,16 @@ public class Fila implements Lista{
 		}
 		/**
 		 * Metodo tem espaco;
+		 * 
 		 * @return retorna verdadeiro se o limite for maior que o tamanho.
 		 */
 		public boolean temEspaco() {
 			return limite > tamanho;
 		}
 		/**
-		 * getInicio
-		 * @return retorna o nodo de inicio se a fila nao estiver vazia, caso contrário retornara nulo. 
+		 * Metodo getInicio;
+		 * 
+		 * @return retorna o nodo de inicio se a fila nao estiver vazia, caso contrario retornara nulo. 
 		 */
 		
 		@Override

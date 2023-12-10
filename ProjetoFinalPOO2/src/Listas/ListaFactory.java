@@ -8,6 +8,7 @@ public class ListaFactory {
 
     /**
      * Metodo createLista, retorna a lista conforme o tipo passado pelo usuario.
+     * 
      * Tipos disponiveis: encadeada, duplamenteEncadeada e circular.
      *
      * @param tipo Tipo de lista desejada.
@@ -30,6 +31,7 @@ public class ListaFactory {
 
     /**
      * Metodo createLista, retorna a lista conforme o tipo passado pelo usuario e o limite especificado.
+     * 
      * Tipos disponiveis: fila e pilha.
      *
      * @param tipo   Tipo de lista desejada.

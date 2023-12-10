@@ -2,6 +2,7 @@ package Listas;
 
 /**
  * Classe da estrutura de dados Lista Circular.
+ * 
  * @author filipefranciscof3@gmail.com
  * 
  */
@@ -20,14 +21,16 @@ public class ListaCircular implements Lista{
 			return inicio;
 		}
 		/**
-		 * Metodo setInicio
+		 * Metodo setInicio;
+		 * 
 		 * @param inicio Parametro do tipo Nodo que sera o novo inicio.
 		 */
 		public void setInicio(Nodo inicio) {
 			this.inicio = inicio;
 		}
 		/**
-		 * Metodo getFim
+		 * Metodo getFim;
+		 * 
 		 * @return returna o ultimo elemento da lista.
 		 */
 		public Nodo getFim() {

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 /**
  * Classe ListaComposite: Permite fazer a composicao de varias listas, manipulando todas elas juntas.
+ * 
+ * @author filipefranciscof3@gmail.com
  */
 public class ListaComposite implements Lista {
 
@@ -15,17 +17,17 @@ public class ListaComposite implements Lista {
         this.listas = new ArrayList<>();
     }
     /**
-     * Metodo adicionarLista: adiciona uma Lista na lista de listas.
+     * Metodo adicionarLista: adiciona uma Lista na lista de listas;
      * 
-     * @param lista O parametro e um tipo lista, que sera adicionado na lista de listas;
+     * @param lista O parametro e um tipo lista, que sera adicionado na lista de listas.
      */
     public void adicionarLista(Lista lista) {
         listas.add(lista);
     }
     /**
-     * Metodo removerLista: remove uma Lista na lista de listas.
+     * Metodo removerLista: remove uma Lista na lista de listas;
      * 
-     * @param lista O parametro e um tipo lista, que sera removido da lista de listas;
+     * @param lista O parametro e um tipo lista, que sera removido da lista de listas.
      */
     public void removerLista(Lista lista) {
         listas.remove(lista);
