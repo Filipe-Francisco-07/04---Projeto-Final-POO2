@@ -33,6 +33,7 @@ public class ListaComposite implements Lista {
         listas.remove(lista);
     }
 
+    //demais métodos implementados da interface Lista
     @Override
     public void inserir(int valor) {
         for (Lista lista : listas) {
@@ -90,7 +91,7 @@ public class ListaComposite implements Lista {
     }
 
     @Override
-    public Lista copiar() {
+    public ListaComposite copiar() {
         ListaComposite copia = new ListaComposite();
         for (Lista lista : listas) {
             copia.listas.add(lista.copiar());

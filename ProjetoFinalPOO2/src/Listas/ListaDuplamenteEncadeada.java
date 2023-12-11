@@ -162,7 +162,7 @@ public class ListaDuplamenteEncadeada implements Lista {
     }
 
     @Override
-    public Lista copiar() {
+    public ListaDuplamenteEncadeada copiar() {
         ListaDuplamenteEncadeada copia = new ListaDuplamenteEncadeada();
         Nodo aux = inicio;
         while (aux != null) {

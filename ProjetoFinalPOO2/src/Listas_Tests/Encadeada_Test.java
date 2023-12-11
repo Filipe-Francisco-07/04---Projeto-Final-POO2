@@ -11,17 +11,8 @@ import Listas.ListaEncadeada;
 
 
 class Encadeada_Test {
+	
 	 @Test
-	    void testInserir() {
-	        ListaEncadeada l = new ListaEncadeada();
-	        l.inserir(1);
-	        assertEquals(1, l.getInicio().getDado());
-	        l.inserir(2);
-	        assertEquals(1, l.getInicio().getProx().getDado());
-	        assertEquals(2, l.getInicio().getDado());
-	    }
-
-	    @Test
 	    void testRemover() {
 	        ListaEncadeada l = new ListaEncadeada();
 	        l.inserir(1);
@@ -30,6 +21,15 @@ class Encadeada_Test {
 	        assertEquals(2, l.getInicio().getDado());
 	        l.remover(2);
 	        assertEquals(null, l.getInicio());
+	    }
+	 @Test
+	    void testInserir() {
+	        ListaEncadeada l = new ListaEncadeada();
+	        l.inserir(1);
+	        assertEquals(1, l.getInicio().getDado());
+	        l.inserir(2);
+	        assertEquals(1, l.getInicio().getProx().getDado());
+	        assertEquals(2, l.getInicio().getDado());
 	    }
 
 	    @Test

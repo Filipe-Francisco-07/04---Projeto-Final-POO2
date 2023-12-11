@@ -67,3 +67,4 @@ public interface Lista {
 	 */
     public Nodo getInicio();
 }
+

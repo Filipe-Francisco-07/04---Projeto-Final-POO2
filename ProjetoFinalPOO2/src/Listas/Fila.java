@@ -109,7 +109,7 @@ public class Fila implements Lista{
 		}
 
 		@Override
-		public Lista copiar() {
+		public Fila copiar() {
 		    Fila copia = new Fila(limite);
 		    Nodo atual = inicio;
 		    while (atual != null) {

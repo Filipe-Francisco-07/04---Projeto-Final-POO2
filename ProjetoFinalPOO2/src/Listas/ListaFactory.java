@@ -5,7 +5,6 @@ package Listas;
  * @author filipefranciscof3@gmail.com
  */
 public class ListaFactory {
-
     /**
      * Metodo createLista, retorna a lista conforme o tipo passado pelo usuario.
      * 
@@ -22,7 +21,9 @@ public class ListaFactory {
             return new ListaEncadeada();
         } else if (tipo.equals("duplamenteEncadeada")) {
             return new ListaDuplamenteEncadeada();
-        } else if (tipo.equals("circular")) {
+        } else if (tipo.equals("composite")) {
+        return new ListaComposite();
+        }else if (tipo.equals("circular")) {
             return new ListaCircular();
         } else {
             throw new IllegalArgumentException("Tipo de lista inválido");

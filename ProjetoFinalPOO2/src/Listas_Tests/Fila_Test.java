@@ -104,5 +104,4 @@ class Fila_Test {
         assertEquals(1, f.getInicio().getProx().getProx().getDado());
     }
 
-
 }
